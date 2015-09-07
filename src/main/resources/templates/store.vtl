@@ -1,0 +1,40 @@
+<div class=well>
+<h2>$store.getName()</h2>
+<h4>$store.getAddress()</h4>
+</div>
+
+Brands available at this store:
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Brands</th>
+      <th>-</th>
+    </tr>
+  </thead>
+  <tbody>
+    #foreach ($brand in $brands)
+      <tr>
+        <td><a href="/brands/$brand.getId()">$brand.getName()</a></td>
+        <td></td>
+      </tr>
+    #end
+  </tbody>
+</table>
+
+<hr />
+
+<form action="/stores/$store.getId()/addBrand" method="post">
+  <fieldset>
+    <legend>Add Brands to this store</legend>
+    <div class="form-group">
+      <label for="brandId">Brand:</label>
+      <select name="brandId">
+        #foreach ($brand in $allbrands)
+        <option value="$brand.getId()">$brand.getName()
+        #end
+      </select>
+    </div>
+      <input type="hidden" value="$store.getId()" name="storeId">
+      <button type="submit" class="btn btn-info">Add Brand</button>
+  </fieldset>
+</form>

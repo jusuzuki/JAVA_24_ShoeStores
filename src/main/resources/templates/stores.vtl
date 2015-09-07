@@ -1,0 +1,43 @@
+<form action="/stores/new" method="post">
+  <fieldset>
+    <legend>Add Store</legend>
+      <div class="form-group">
+        <label for="name">Store name:</label>
+        <input type="text" id="name" name="name">
+      </div>
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address">
+      </div>
+      <div class="form-group">
+        <label for="area">Area:</label>
+        <input type="text" id="area" name="area">
+      </div>
+      <button type="submit" class="btn btn-info" id="addStore">Add Store</button>
+  </fieldset>
+</form>
+
+<hr />
+
+<h2> View stores </h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Store</th>
+      <th>Address</th>
+      <th>-</th>
+      <th>-</th>
+    </tr>
+  </thead>
+  <tbody>
+    #foreach ($store in $stores)
+      <tr>
+        <td><a href="/stores/$store.getId()">$store.getName()</a></td>
+        <td>$store.getAddress()</td>
+        <td><a href="/stores/$store.getId()/update" class="btn btn-warning">Update</a></td>
+        <td><a href="/stores/$store.getId()/delete" class="btn btn-danger">Delete</a></td>
+      </tr>
+    #end
+  </tbody>
+</table>

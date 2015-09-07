@@ -1,0 +1,39 @@
+<h2>List of current Stores in our Database:</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Store</th>
+      <th>Address</th>
+      <th>Area</th>
+    </tr>
+  </thead>
+  <tbody>
+    #foreach($store in $stores)
+      <tr>
+        <td><a href="/stores/$store.getId()">$store.getName()</a></td>
+        <td>$store.getAddress()</td>
+        <td>$store.getArea()</td>
+      </tr>
+    #end
+  </tbody>
+</table>
+
+<br>
+</hr/>
+<br>
+
+<h2>List of current Shoe Brands in our Database:</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Brand</th>
+    </tr>
+  </thead>
+  <tbody>
+    #foreach($brand in $brands)
+      <tr>
+        <td><a href="/brands/$brand.getId()">$brand.getName()</a></td>
+      </tr>
+    #end
+  </tbody>
+</table>
